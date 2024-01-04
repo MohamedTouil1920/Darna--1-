@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Product List</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/styles.css}">
+</head>
+<body>
+    <div th:replace="fragments/header :: header"></div> 
+    <a th:href="@{/}">Back</a>
+    <h3>Product List</h3>
+    <table>
+        <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+        <tr th:each="immeuble : ${immeubles}">
+            <td th:text="${immeuble.code}"></td>
+            <td th:text="${immeuble.name}"></td>
+            <td th:text="|${immeuble.price} DT|"></td>
+            <td th:text="${immeuble.category.name}"></td>
+            <td>
+                <img th:if="${immeuble.image}" th:src="@{|/images/${immeuble.image}|}" width="50px" height="50px">
+                <img th:unless="${immeuble.image}" th:src="@{/images/no-image.png}" width="50px" height="50px">
+            </td>
+            <td>
+               
+                <form th:action="@{|/immeuble/${immeuble}/edit|}" method="get" class="edit-form">
+                    <button type="submit">Edit</button>
+                </form>
+                <form th:action="@{|/immeubles/${immeuble.id}/delete|}" method="post" class="delete-form">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/immeuble/create}" class="add-button">Add immeuble</a>
+
+    <a th:href="@{/categories}" class="add-button">List Categories</a>
+</body>
+</html>

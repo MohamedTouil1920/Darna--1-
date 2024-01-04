@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Welcome to DArna</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <img th:src="@{/images/logo.png}" alt="Online Store Logo" class="logo">
+    </header>
+    <h2>Welcome to Darna</h2>
+    <p>This is your online immeuble location </p>
+
+    <a th:href="@{/immeubles}" class="manage-button">immeuble Management</a>
+</body>
+
+</html>
