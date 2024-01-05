@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.Darna.business.services.operationServices;
-import com.example.Darna.dao.entities.client;
+
 import com.example.Darna.dao.entities.operation;
 import com.example.Darna.dao.repositories.operationRepository;
 

@@ -1,5 +1,5 @@
 package com.example.Darna.dao.entities;
-import java.util.Locale.Category;
+
 
 
 import jakarta.persistence.Column;
@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
+
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,7 +34,7 @@ public class immeuble {
     @Column(name = "image", length = 50, nullable = true)
     private String image;
     @Column (name="price, length=10, nullable= false")
-private double price;
+private Long price;
     @Column(name = "category" ,length = 15,nullable = true)
     private String category;
         @Column(name = "superficie")

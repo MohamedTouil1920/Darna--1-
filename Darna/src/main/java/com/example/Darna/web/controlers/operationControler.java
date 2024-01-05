@@ -54,8 +54,8 @@ public class operationControler {
         }
     @PostMapping("/save")
     public String  addOperation(operation operation) {
-        /*Long day=operation.countDay(operation.getDateDebut(), operation.getDateFin());
-        Long prix=day*operation.getIdImmeuble().getPrixLoc();*/
+        Long day=operation.countDay(operation.getDateDebut(), operation.getDateFin());
+        Long prix=day*operation.getIdImmeuble().getPrice();
         operation.setFraisLoc(prix);
         operationService.addOperation(operation);        
         return "redirect:/operations";
