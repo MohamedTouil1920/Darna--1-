@@ -24,7 +24,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class client {
+public class Client {
     @Id
     @Column(name = "cin")
     private Long cin;

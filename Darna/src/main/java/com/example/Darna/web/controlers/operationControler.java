@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.Darna.business.services.operationServices;
-import com.example.Darna.dao.entities.client;
+import com.example.Darna.dao.entities.Client;
 import com.example.Darna.dao.entities.immeuble;
 import com.example.Darna.dao.entities.operation;
 import com.example.Darna.dao.repositories.immeubleRepository;
@@ -42,7 +42,7 @@ public class operationControler {
     @GetMapping("/new")
     public String showOperationForm(Model model ) {
             List<immeuble> immeuble=immeubleRepository.findAll();
-            List<client> clients=clientRepository.findAll();
+            List<Client> clients=clientRepository.findAll();
 
             model.addAttribute("immeubles", immeuble);
             model.addAttribute("clients", clients);
@@ -54,7 +54,7 @@ public class operationControler {
         }
     @PostMapping("/save")
     public String  addOperation(operation operation) {
-        Long day=operation.countDay(operation.getDateDebut(), operation.getDateFin());
+        Long day=operation.calculateDaysDifference(operation.getDateDebut(), operation.getDateFin());
         Long prix=day*operation.getIdImmeuble().getPrice();
         operation.setFraisLoc(prix);
         operationService.addOperation(operation);        

@@ -6,7 +6,7 @@ import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import jakarta.persistence.CascadeType;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -52,17 +52,17 @@ public class operation {
     @Column(name = "fraisLoc")
     private Long fraisLoc;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "nomClient", referencedColumnName = "name")
-    private client nomClient;
+    private Client nomClient;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name = "cinClient", referencedColumnName = "cin")
-    private client cinClient;
-    @ManyToOne(cascade = CascadeType.ALL)
+    private Client cinClient;
+    @ManyToOne()
     @JoinColumn(name = "idImmeuble", referencedColumnName = "id")
     private immeuble idImmeuble;
-    public Long  countDay(Date dd,Date df){
+    public Long  calculateDaysDifference(Date dd,Date df){
         Long time_diff=dd.getTime() - df.getTime();
         Long days_difference = time_diff / (1000 * 60 * 60 * 24);  
         return days_difference;

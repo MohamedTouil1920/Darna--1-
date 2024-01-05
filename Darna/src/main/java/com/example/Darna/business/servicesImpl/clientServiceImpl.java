@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.Darna.business.services.clientServices;
-import com.example.Darna.dao.entities.client;
+import com.example.Darna.dao.entities.Client;
 import com.example.Darna.dao.repositories.clientRepository;;
 @Service
 public class clientServiceImpl  implements clientServices{
@@ -16,7 +16,7 @@ public class clientServiceImpl  implements clientServices{
     @Autowired
     clientRepository clientRepository;
     @Override
-    public Optional<client> getClient(Long cin) {
+    public Optional<Client> getClient(Long cin) {
         return clientRepository.findById(cin);
     }
 
@@ -28,18 +28,18 @@ public class clientServiceImpl  implements clientServices{
     }
 
     @Override
-    public List<client> getAllClient() {
+    public List<Client> getAllClient() {
         return clientRepository.findAll();
     }
 
     @Override
-    public void addClient(client c) {
+    public void addClient(Client c) {
                 clientRepository.save(c);
 
     }
 
     @Override
-    public void updateClient(client c) {
+    public void updateClient(Client c) {
                 clientRepository.save(c);
 
     }

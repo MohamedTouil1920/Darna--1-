@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.Darna.business.services.clientServices;
-import com.example.Darna.dao.entities.client;
+import com.example.Darna.dao.entities.Client;
 
 
 
@@ -27,7 +27,7 @@ public class clientController {
 
     @GetMapping()
     public String getAllClient(Model model) {
-        java.util.List<client> listclient=clientService.getAllClient();        
+        java.util.List<Client> listclient=clientService.getAllClient();        
         model.addAttribute("listClient", listclient);
         return "listClient.html";
     }
@@ -37,11 +37,11 @@ public class clientController {
     // Adding a Client
     @GetMapping("/new")
     public String showClientsFrom(Model model){
-        model.addAttribute("client", new client(null, null, null, null));
+        model.addAttribute("client", new Client(null, null, null, null));
         return "clientForm.html";
     }
     @PostMapping("/save")
-    public String addClient(client client , RedirectAttributes ra) {
+    public String addClient(Client client , RedirectAttributes ra) {
             clientService.addClient(client);
             ra.addFlashAttribute("message", "The Client has been saved successfully");
         return "redirect:/clients";
@@ -50,7 +50,7 @@ public class clientController {
     // Updating a Client
     @GetMapping("/update/{cin}")
     public String showUpdateForm(@PathVariable("cin") Long cin ,Model model ){
-            Optional<client> client =clientService.getClient(cin);
+            Optional<Client> client =clientService.getClient(cin);
             if (client !=null) {
             model.addAttribute("client", client);
                 

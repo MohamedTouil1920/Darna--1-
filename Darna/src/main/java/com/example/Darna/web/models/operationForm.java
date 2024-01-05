@@ -3,7 +3,7 @@ package com.example.Darna.web.models;
     
 import java.util.Date;
 
-import com.example.Darna.dao.entities.client;
+import com.example.Darna.dao.entities.Client;
 
 
 import lombok.AllArgsConstructor;
@@ -20,7 +20,7 @@ public class operationForm {
     private Date dateFin;
     private String garantie;
     private String montantGarantie;
-    private client nomClient;
-    private client cinClient;
+    private Client nomClient;
+    private Client cinClient;
 
 }

@@ -8,14 +8,14 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 
-import com.example.Darna.dao.entities.client;;
+import com.example.Darna.dao.entities.Client;;
 @Service
 public interface clientServices {
     
-    public Optional<client> getClient(Long cin);
-    public void addClient (client c);
-    public void updateClient (client c);
+    public Optional<Client> getClient(Long cin);
+    public void addClient (Client c);
+    public void updateClient (Client c);
     public void deleteClient (Long cin);
-    public List<client> getAllClient();
+    public List<Client> getAllClient();
 }
  

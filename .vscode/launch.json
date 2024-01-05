@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-DarnaApplication<Darna>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.example.Darna.DarnaApplication",
+            "projectName": "Darna",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
